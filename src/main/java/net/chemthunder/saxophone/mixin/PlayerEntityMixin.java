@@ -3,6 +3,7 @@ package net.chemthunder.saxophone.mixin;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.chemthunder.saxophone.impl.Saxophone;
 import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
 import net.chemthunder.saxophone.impl.index.data.SaxoDamageSources;
 import net.chemthunder.saxophone.impl.index.tag.SaxoDamageTypeTags;
 import net.chemthunder.saxophone.impl.util.ModUtils;
@@ -52,15 +53,23 @@ public abstract class PlayerEntityMixin {
         } else if (ModUtils.isEos(player)) {
             temp =
                     Text.literal("E").withColor(0xa16252).append(Text.literal("o").withColor(0xc08f75).append(Text.literal("s").withColor(0xffca8e))).formatted(Formatting.ITALIC);
-        } if(Saxophone.isNightstrike(player) && player.getWorld().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)) {
+        } else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isNightstrike(player)) {
             temp = Text.literal("The Reaper").withColor(0x3ED6BA).formatted(Formatting.ITALIC);
-            if(AvariceComponent.KEY.get(player).isWavering()){
+            if(ArchitectComponent.KEY.get(player).hasWavering()){
                 temp = Text
                         .literal("The Reaper")
                         .setStyle(ModUtils.nameEffect(Text.of("The Reaper")))
                         .withColor(0x3ED6BA)
-                        .formatted(Formatting.ITALIC)
-                        .formatted(Formatting.OBFUSCATED);
+                        .formatted(Formatting.ITALIC);
+            }
+        } else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isChem(player)) {
+            temp = Text.literal("The Godmaker").withColor(0x3ED6BA).formatted(Formatting.ITALIC);
+            if(ArchitectComponent.KEY.get(player).hasWavering()){
+                temp = Text
+                        .literal("The Godmaker")
+                        .setStyle(ModUtils.nameEffect(Text.of("The Godmaker")))
+                        .withColor(0xAF2CD4)
+                        .formatted(Formatting.ITALIC);
             }
         }
         return temp;
@@ -117,8 +126,7 @@ public abstract class PlayerEntityMixin {
 
         if (AvariceComponent.KEY.get(player).isInvincible() ||
                 (
-                        Saxophone.isNightstrike(player) &&
-                                player.getWorld().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)
+                        ArchitectComponent.KEY.get(player).hasFlair()
                 )
         ) {
             ci.cancel();

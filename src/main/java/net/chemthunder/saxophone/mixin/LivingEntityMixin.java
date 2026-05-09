@@ -2,6 +2,7 @@ package net.chemthunder.saxophone.mixin;
 
 import net.chemthunder.saxophone.impl.Saxophone;
 import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
 import net.chemthunder.saxophone.impl.cca.entity.InsistenceComponent;
 import net.chemthunder.saxophone.impl.cca.entity.RevenantDeathAnimationComponent;
 import net.chemthunder.saxophone.impl.item.AuthoritysObituaryItem;
@@ -118,7 +119,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         if((LivingEntity)(Object)this instanceof PlayerEntity player){
             if (ModUtils.isAvarice(player)) {
                 return 0;
-            }else if(Saxophone.isNightstrike(player) && this.getWorld().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)){
+            }else if(ArchitectComponent.KEY.get(player).hasFlair() && (Saxophone.isNightstrike(player)||Saxophone.isChem(player))){
                 return 0;
             }else{
                 instance.spawnParticles(particle, x, y, z, count, deltaX, deltaY, deltaZ, speed);
@@ -134,7 +135,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         if ((LivingEntity) (Object) this instanceof PlayerEntity player) {
             if (ModUtils.isAvarice(player)) {
                 return;
-            }else if(Saxophone.isNightstrike(player) && this.getWorld().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)){
+            }else if(ArchitectComponent.KEY.get(player).hasFlair() && (Saxophone.isNightstrike(player)||Saxophone.isChem(player))){
                 return;
             }else{
                 instance.addParticle(parameters, x, y, z, velocityX, velocityY, velocityZ);
@@ -150,7 +151,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             if (ModUtils.isAvarice(player)) {
                 this.clearPotionSwirls();
                 ci.cancel();
-            }else if(Saxophone.isNightstrike(player) && this.getWorld().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)){
+            }else if(ArchitectComponent.KEY.get(player).hasFlair() && (Saxophone.isNightstrike(player)||Saxophone.isChem(player))){
                 this.clearPotionSwirls();
                 ci.cancel();
             }
@@ -162,7 +163,10 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
         if ((LivingEntity) (Object) this instanceof PlayerEntity player) {
             if (ModUtils.isAvarice(player)) {
                 this.dataTracker.set(POTION_SWIRLS, List.of());
-            }else if(Saxophone.isNightstrike(player) && this.getWorld().getServer().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)){
+                this.dataTracker.set(POTION_SWIRLS_AMBIENT,false);
+                ci.cancel();
+            }else if(ArchitectComponent.KEY.get(player).hasFlair() && (Saxophone.isNightstrike(player)||Saxophone.isChem(player))){
+                this.dataTracker.set(POTION_SWIRLS, List.of());
                 this.dataTracker.set(POTION_SWIRLS_AMBIENT,false);
                 ci.cancel();
             }

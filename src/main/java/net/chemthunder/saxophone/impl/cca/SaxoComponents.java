@@ -2,6 +2,7 @@ package net.chemthunder.saxophone.impl.cca;
 
 import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
 import net.chemthunder.saxophone.impl.cca.deity.EosComponent;
+import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
 import net.chemthunder.saxophone.impl.cca.entity.InsistenceComponent;
 import net.chemthunder.saxophone.impl.cca.entity.RevenantDeathAnimationComponent;
 import net.chemthunder.saxophone.impl.cca.entity.ScreenflashComponent;
@@ -21,6 +22,7 @@ public class SaxoComponents implements EntityComponentInitializer, WorldComponen
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.beginRegistration(PlayerEntity.class, AvariceComponent.KEY).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(AvariceComponent::new);
         registry.beginRegistration(PlayerEntity.class, EosComponent.KEY).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(EosComponent::new);
+        registry.beginRegistration(PlayerEntity.class, ArchitectComponent.KEY).respawnStrategy(RespawnCopyStrategy.ALWAYS_COPY).end(ArchitectComponent::new);
 
         registry.beginRegistration(PlayerEntity.class, RevenantDeathAnimationComponent.KEY).respawnStrategy(RespawnCopyStrategy.NEVER_COPY).end(RevenantDeathAnimationComponent::new);
         registry.beginRegistration(LivingEntity.class, InsistenceComponent.KEY).respawnStrategy(RespawnCopyStrategy.NEVER_COPY).end(InsistenceComponent::new);

@@ -2,6 +2,7 @@ package net.chemthunder.saxophone.mixin;
 
 import com.mojang.authlib.GameProfile;
 import net.chemthunder.saxophone.impl.Saxophone;
+import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
 import net.chemthunder.saxophone.impl.util.ModUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -27,11 +28,13 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     private void saxophone$replaceNameOnTablist(CallbackInfoReturnable<Text> cir) {
         //ServerPlayerEntity player = (ServerPlayerEntity)(Object)this;
         if (ModUtils.isAvarice(this)) {
-            cir.setReturnValue(Text.literal("Avarice").withColor(0xff003c).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED));
-        }
-        if(Saxophone.isNightstrike(this) && this.getServer().getGameRules().getBoolean(Saxophone.allowNightstrikeShenanigans)){
+            cir.setReturnValue(Text.literal("Avarice").withColor(0xFF003C).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED));
+        } else if(ArchitectComponent.KEY.get(this).hasFlair() && Saxophone.isNightstrike(this)){
             cir.setReturnValue(
                     Text.literal("The Reaper").withColor(0x3ED6BA).formatted(Formatting.ITALIC));
+        } else if(ArchitectComponent.KEY.get(this).hasFlair() && Saxophone.isChem(this)){
+            cir.setReturnValue(
+                    Text.literal("The Godmaker").withColor(0xAF2CD4).formatted(Formatting.ITALIC));
         }
     }
 }

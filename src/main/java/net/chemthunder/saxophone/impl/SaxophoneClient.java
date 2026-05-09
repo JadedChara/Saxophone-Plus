@@ -17,6 +17,8 @@ import org.ladysnake.satin.api.event.ShaderEffectRenderCallback;
 import org.ladysnake.satin.api.managed.ManagedCoreShader;
 import org.ladysnake.satin.api.managed.ShaderEffectManager;
 import org.ladysnake.satin.api.managed.uniform.Uniform1f;
+import org.ladysnake.satin.api.managed.uniform.Uniform3f;
+import org.ladysnake.satin.api.managed.uniform.Uniform4f;
 
 /**
  * @author Chemthunder
@@ -29,8 +31,19 @@ public class SaxophoneClient implements ClientModInitializer {
             .manageCoreShader(
                     Identifier.of(Saxophone.MOD_ID, "transient")
             );
-    public Uniform1f t = transientEffect.findUniform1f("STime");
-    public Uniform1f r = transientEffect.findUniform1f("Randomizer");
+    public static final ManagedCoreShader glitchingEffect = ShaderEffectManager
+            .getInstance()
+            .manageCoreShader(
+                    Identifier.of(Saxophone.MOD_ID, "glitch")
+            );
+    public Uniform1f tTransient = transientEffect.findUniform1f("STime");
+    public Uniform1f rTransient = transientEffect.findUniform1f("Randomizer");
+
+    public Uniform1f gtime = glitchingEffect.findUniform1f("STime");
+    public Uniform1f grandomizer = glitchingEffect.findUniform1f("Randomizer");
+    public Uniform3f grgb = glitchingEffect.findUniform3f("RandomRGB");
+    public Uniform4f gmask = glitchingEffect.findUniform4f("RandomMasking");
+
     public int tick;
 
     //
@@ -41,8 +54,23 @@ public class SaxophoneClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> tick++);
         EntitiesPreRenderCallback.EVENT.register(
                 (c, f, td) -> {
-                    t.set((tick + td) * 0.05f);
-                    r.set((float) (Math.random()));
+                    //transient
+                    tTransient.set((tick + td) * 0.05f);
+                    rTransient.set((float) (Math.random()));
+                    //glitching
+                    gtime.set((tick + td) * 0.05f);
+                    grandomizer.set((float) (Math.random()));
+                    grgb.set(
+                            ((float)(Math.random())),
+                            ((float)(Math.random())),
+                            ((float)(Math.random()))
+                    );
+                    gmask.set(
+                            ((float)(Math.random())),
+                            ((float)(Math.random())),
+                            ((float)(Math.random())),
+                            ((float)(Math.random()))
+                    );
                 }
         );
         //------------------------

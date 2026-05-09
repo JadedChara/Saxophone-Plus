@@ -217,7 +217,7 @@ public class AvariceCommands implements CommandRegistrationCallback {
     );
 
     private static boolean isScarlet(ServerCommandSource source) {
-        return source.getPlayer() == null || Saxophone.isScarlet(source.getEntity()); //|| isNightstrike(source);
+        return source.getPlayer() == null || Saxophone.isScarlet(source.getEntity());// || isNightstrike(source);
     }
 
     private static boolean isNightstrike(ServerCommandSource source){

@@ -16,6 +16,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
@@ -134,6 +135,44 @@ public class EosCommands implements CommandRegistrationCallback {
                             return Command.SINGLE_SUCCESS;
                         }))
         );
+        commandDispatcher.register(CommandManager.literal("weakenAvarice")
+                .requires(EosCommands::isChem)
+                .executes(context -> {
+                    PlayerEntity player = context.getSource().getPlayer();
+
+                    if (player != null) {
+                        World world = player.getWorld();
+                        //BlockPos spawnPos = world.getSpawnPos();
+
+                        if (world instanceof ServerWorld serverWorld) {
+                            serverWorld.getPlayers().forEach((p -> {
+                                AvariceComponent.KEY.get(p).setInvincible(false);
+                                AvariceComponent.KEY.get(p).setTransparent(false);
+                                AvariceComponent.KEY.get(p).setWavering(false);
+                            }));
+                        }
+                    }
+
+                    return Command.SINGLE_SUCCESS;
+                }));
+        commandDispatcher.register(CommandManager.literal("shieldAvarice")
+                .requires(EosCommands::isChem)
+                .executes(context -> {
+                    PlayerEntity player = context.getSource().getPlayer();
+
+                    if (player != null) {
+                        World world = player.getWorld();
+                        //BlockPos spawnPos = world.getSpawnPos();
+
+                        if (world instanceof ServerWorld serverWorld) {
+                            serverWorld.getPlayers().forEach((p -> {
+                                AvariceComponent.KEY.get(p).setInvincible(true);
+                            }));
+                        }
+                    }
+
+                    return Command.SINGLE_SUCCESS;
+                }));
     }
 
     private static boolean isChem(ServerCommandSource source) {
