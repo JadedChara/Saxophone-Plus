@@ -68,7 +68,7 @@ public abstract class PlayerEntityMixin {
                 temp = Text
                         .literal("The Godmaker")
                         .setStyle(ModUtils.nameEffect(Text.of("The Godmaker")))
-                        .withColor(0xAF2CD4)
+                        .withColor(0x3ED6BA)
                         .formatted(Formatting.ITALIC);
             }
         }
