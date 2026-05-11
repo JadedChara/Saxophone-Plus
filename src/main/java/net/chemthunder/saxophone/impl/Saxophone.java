@@ -81,13 +81,12 @@ public class Saxophone implements ModInitializer {
     }
 
     /**
-     * Checks if an entity is Scarelt / Ivory / Netvision
+     * Checks if an entity is Scarlet / Ivory / Netvision
      * @param entity The entity to check.
      */
     public static boolean isScarlet(Entity entity) {
         return entity != null && (entity.getUuidAsString().equals("c38f83cf-2723-497a-9327-f5937fb2fc08"))|| (isChem(entity));
     }
-
     /**
      * Checks if an entity is Chemthunder.
      * @param entity The entity to check.
@@ -95,12 +94,41 @@ public class Saxophone implements ModInitializer {
     public static boolean isChem(Entity entity) {
         return entity != null && (entity.getUuidAsString().equals("a26e29f1-532e-4116-9112-ca18ea30d27f"));
     }
-
-
+    /**
+     * Checks if an entity is YTNightstrike.
+     * @param entity The entity to check.
+     */
     public static boolean isNightstrike(Entity entity) {
         return entity != null && (entity.getUuidAsString().equals("4d495917-0c94-4758-9e7d-b66a03f0d648"));
     }
+    /**
+     * Checks if an entity is AcoYT. Unused due to Aco's lack of activity.
+     * @param entity The entity to check.
+     */
+    @Deprecated
+    public static boolean isAco(Entity entity) {
+        return entity != null && (entity.getUuidAsString().equals(""));
+    }
+    /**
+     * Checks if an entity is Hstar747.
+     * @param entity The entity to check.
+     */
+    public static boolean isHstar(Entity entity) {
+        return entity != null && (entity.getUuidAsString().equals("edcc4442-f423-4b3b-bb58-c6661085195c"));
+    }
+    /**
+     * Checks if an entity is Heartless.
+     * @param entity The entity to check.
+     */
+    public static boolean isHeartless(Entity entity) {
+        return entity != null && (entity.getUuidAsString().equals("d0f1f0f4-631e-4290-9f60-78ace9e5e0ef"));
+    }
 
+
+    /**
+     * Registers command sets.
+     *
+     */
     private static void registerEvents() {
         CommandRegistrationCallback.EVENT.register(new AvariceCommands());
         CommandRegistrationCallback.EVENT.register(new EosCommands());

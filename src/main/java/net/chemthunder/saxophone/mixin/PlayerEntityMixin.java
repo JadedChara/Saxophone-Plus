@@ -38,6 +38,8 @@ public abstract class PlayerEntityMixin {
     private Text saxophone$changeUsername(Text original) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         MutableText temp = original.copy();
+
+        //Avarice
         if (ModUtils.isAvarice(player)) {
             temp =
                     Text.literal("Avarice").withColor(0xd70048).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);
@@ -50,10 +52,16 @@ public abstract class PlayerEntityMixin {
                         .formatted(Formatting.OBFUSCATED);
 
             }
-        } else if (ModUtils.isEos(player)) {
+        }
+
+        //Eos
+        else if (ModUtils.isEos(player)) {
             temp =
                     Text.literal("E").withColor(0xa16252).append(Text.literal("o").withColor(0xc08f75).append(Text.literal("s").withColor(0xffca8e))).formatted(Formatting.ITALIC);
-        } else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isNightstrike(player)) {
+        }
+
+        //YTNightstrike
+        else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isNightstrike(player)) {
             temp = Text.literal("The Reaper").withColor(0x3ED6BA).formatted(Formatting.ITALIC);
             if(ArchitectComponent.KEY.get(player).hasWavering()){
                 temp = Text
@@ -62,13 +70,52 @@ public abstract class PlayerEntityMixin {
                         .withColor(0x3ED6BA)
                         .formatted(Formatting.ITALIC);
             }
-        } else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isChem(player)) {
-            temp = Text.literal("The Godmaker").withColor(0x3ED6BA).formatted(Formatting.ITALIC);
+        }
+
+        //Chemthunder
+        else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isChem(player)) {
+            temp = Text.literal("The Godmaker").withColor(0xAF2CD4).formatted(Formatting.ITALIC);
             if(ArchitectComponent.KEY.get(player).hasWavering()){
                 temp = Text
                         .literal("The Godmaker")
                         .setStyle(ModUtils.nameEffect(Text.of("The Godmaker")))
-                        .withColor(0x3ED6BA)
+                        .withColor(0xAF2CD4)
+                        .formatted(Formatting.ITALIC);
+            }
+        }
+
+        //Scarlet
+        else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isScarlet(player)) {
+            temp = Text.literal("Ennui").withColor(0xD690A9).formatted(Formatting.ITALIC);
+            if(ArchitectComponent.KEY.get(player).hasWavering()){
+                temp = Text
+                        .literal("Ennui")
+                        .setStyle(ModUtils.nameEffect(Text.of("Ennui")))
+                        .withColor(0xD690A9)
+                        .formatted(Formatting.ITALIC);
+            }
+        }
+
+        //HStar
+        else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isHstar(player)) {
+            temp = Text.literal("Riftmaster").withColor(0xAD8C00).formatted(Formatting.ITALIC);
+            if(ArchitectComponent.KEY.get(player).hasWavering()){
+                temp = Text
+                        .literal("Riftmaster")
+                        .setStyle(ModUtils.nameEffect(Text.of("Riftmaster")))
+                        .withColor(0xAD8C00)
+                        .formatted(Formatting.ITALIC);
+            }
+        }
+
+        //Heartless
+        else if(ArchitectComponent.KEY.get(player).hasFlair() && Saxophone.isHeartless(player)) {
+            temp = Text.literal("Heartless").withColor(0x730000).formatted(Formatting.ITALIC);
+            if(ArchitectComponent.KEY.get(player).hasWavering()){
+                temp = Text
+                        .literal("Heartless")
+                        .setStyle(ModUtils.nameEffect(Text.of("Heartless")))
+                        .withColor(0x730000)
                         .formatted(Formatting.ITALIC);
             }
         }

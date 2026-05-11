@@ -35,6 +35,15 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
         } else if(ArchitectComponent.KEY.get(this).hasFlair() && Saxophone.isChem(this)){
             cir.setReturnValue(
                     Text.literal("The Godmaker").withColor(0xAF2CD4).formatted(Formatting.ITALIC));
+        } else if(ArchitectComponent.KEY.get(this).hasFlair() && Saxophone.isScarlet(this)){
+            cir.setReturnValue(
+                    Text.literal("Ennui").withColor(0xD690A9).formatted(Formatting.ITALIC));
+        } else if(ArchitectComponent.KEY.get(this).hasFlair() && Saxophone.isHstar(this)){
+            cir.setReturnValue(
+                    Text.literal("Riftmaster").withColor(0xAD8C00).formatted(Formatting.ITALIC));
+        } else if(ArchitectComponent.KEY.get(this).hasFlair() && Saxophone.isHeartless(this)){
+            cir.setReturnValue(
+                    Text.literal("Heartless").withColor(0x730000).formatted(Formatting.ITALIC));
         }
     }
 }

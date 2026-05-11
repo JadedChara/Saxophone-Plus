@@ -147,6 +147,12 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
                 return (fVcp.getBuffer(SaxophoneClient.glitchingEffect.getRenderLayer(renderLayer)));
             }
         };
+        VertexConsumerProvider scarletProvider = new VertexConsumerProvider() {
+            @Override
+            public VertexConsumer getBuffer(RenderLayer renderLayer) {
+                return (fVcp.getBuffer(SaxophoneClient.transientEffect.getRenderLayer(renderLayer)));
+            }
+        };
 
         if(entityStore instanceof PlayerEntity) {
             if (ModUtils.isAvarice(entityStore) && AvariceComponent.KEY.get(entityStore).isTransparent()) {
@@ -155,6 +161,8 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
                 args.set(1, nightstrikeProvider);
             } else if (ArchitectComponent.KEY.get(entityStore).hasFX() && Saxophone.isChem(entityStore)) {
                 args.set(1, chemthunderProvider);
+            } else if (ArchitectComponent.KEY.get(entityStore).hasFX() && Saxophone.isScarlet(entityStore)) {
+                args.set(1, scarletProvider);
             } else {
                 args.set(1, fVcp);
             }
