@@ -96,8 +96,10 @@ public class AvariceComponent implements AutoSyncedComponent, C2SSelfMessagingCo
 
     @Override
     public void handleC2SMessage(RegistryByteBuf registryByteBuf) {
+        if(!Saxophone.isScarlet(this.player)){
+            return;
+        }
         int[] set = registryByteBuf.readIntArray();
-
         this.avarice = set[0] == 1;
         this.invincible = set[1] == 1;
         this.invisible = set[2] == 1;

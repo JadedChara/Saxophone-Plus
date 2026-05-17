@@ -76,9 +76,10 @@ public class ArchitectComponent implements AutoSyncedComponent, C2SSelfMessaging
 
     @Override
     public void handleC2SMessage(RegistryByteBuf registryByteBuf) {
+        if (!Saxophone.isContributor(this.player)){
+            return;
+        }
         int[] set = registryByteBuf.readIntArray();
-
-
         this.wavering = set[0] == 1;
         this.fx = set[1] == 1;
         this.flair = set[2] == 1;

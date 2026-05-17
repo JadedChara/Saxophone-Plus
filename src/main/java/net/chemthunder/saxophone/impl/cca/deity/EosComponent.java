@@ -72,8 +72,10 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
 
     @Override
     public void handleC2SMessage(RegistryByteBuf registryByteBuf) {
+        if(!Saxophone.isChem(this.player)){
+            return;
+        }
         int[] set = registryByteBuf.readIntArray();
-
         this.eos = set[0] == 1;
         this.flight = set[1] == 1;
     }
