@@ -4,12 +4,14 @@ import net.acoyt.acornlib.api.util.MiscUtils;
 import net.chemthunder.saxophone.impl.Saxophone;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.registry.RegistryWrapper;
 import org.ladysnake.cca.api.v3.component.ComponentKey;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
+import org.ladysnake.cca.api.v3.entity.C2SSelfMessagingComponent;
 
-public class EosComponent implements AutoSyncedComponent, CommonTickingComponent {
+public class EosComponent implements AutoSyncedComponent, CommonTickingComponent, C2SSelfMessagingComponent {
     public static final ComponentKey<EosComponent> KEY = MiscUtils.getOrCreateKey(Saxophone.id("eos"), EosComponent.class);
     private final PlayerEntity player;
 
@@ -64,5 +66,37 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
         this.eos = eos;
         this.flight = flight;
         this.sync();
+    }
+
+    //CLIENT COMMUNICATION
+
+    @Override
+    public void handleC2SMessage(RegistryByteBuf registryByteBuf) {
+        int[] set = registryByteBuf.readIntArray();
+
+        this.eos = set[0] == 1;
+        this.flight = set[1] == 1;
+    }
+
+    public void c2sEos(boolean bl){
+        this.eos = bl;
+        this.serializeAndSend();
+    }
+    public void c2sFlight(boolean bl){
+        this.flight = bl;
+        this.serializeAndSend();
+    }
+
+    public void serializeAndSend(){
+
+        int e = this.eos ? 1 : 0;
+        int f = this.flight ? 1 : 0;
+
+
+        int[] set = {e,f};
+
+        sendC2SMessage(buf->{
+            buf.writeIntArray(set);
+        });
     }
 }

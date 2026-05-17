@@ -1,13 +1,13 @@
-// 1.21.1	2026-05-07T20:39:37.0167041	Saxophone/Model Definitions
-52fec15086ac0e45633dbc04765456a45185ee75 assets\saxophone\blockstates\covetous_monolith.json
-5ba58a955afae6f111fa0682301815c54c976fcb assets\saxophone\models\block\clouded_thought.json
-5a82a302cd64d62207488032795ae88da9463adc assets\saxophone\models\item\forsaken_charter.json
+// 1.21.1	2026-05-16T23:27:08.0588596	Saxophone/Model Definitions
 63b75dbe9afbcf2a064bae8026002f7533f40e55 assets\saxophone\models\item\contract.json
-78ef0cb332094e398dc0e92c0a3008f260c0664a assets\saxophone\models\item\martyrdom.json
+52fec15086ac0e45633dbc04765456a45185ee75 assets\saxophone\blockstates\covetous_monolith.json
+487e8e6e422a2fe26e660991dfda0c003569115b assets\saxophone\models\item\covetous_monolith.json
 5eb03d5c84c0ebc8e1e24bac0f251591c9689dcc assets\saxophone\models\item\virtus_dei.json
+78ef0cb332094e398dc0e92c0a3008f260c0664a assets\saxophone\models\item\martyrdom.json
 464a30aa98a59d48ec2c1e7a77eeff61ebf6f1da assets\saxophone\models\item\wrath_of_twilight.json
+37d1c2632370c3d94b9a502cc3ed00456783843c assets\saxophone\models\item\contract_signed.json
+5a82a302cd64d62207488032795ae88da9463adc assets\saxophone\models\item\forsaken_charter.json
 d62bfa1ca8e84592215eec51f98f564b8385b22c assets\saxophone\models\item\deific_warrant.json
 60ef90ab74972464d93e34122a6d2259e34f2081 assets\saxophone\blockstates\clouded_thought.json
-487e8e6e422a2fe26e660991dfda0c003569115b assets\saxophone\models\item\covetous_monolith.json
+5ba58a955afae6f111fa0682301815c54c976fcb assets\saxophone\models\block\clouded_thought.json
 866e206055c4d39ca3dd484d2a54cfc039ebf8d0 assets\saxophone\models\item\liberation.json
-37d1c2632370c3d94b9a502cc3ed00456783843c assets\saxophone\models\item\contract_signed.json

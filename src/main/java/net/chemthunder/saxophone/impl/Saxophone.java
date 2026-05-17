@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.entity.Entity;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -85,7 +86,10 @@ public class Saxophone implements ModInitializer {
      * @param entity The entity to check.
      */
     public static boolean isScarlet(Entity entity) {
-        return entity != null && (entity.getUuidAsString().equals("c38f83cf-2723-497a-9327-f5937fb2fc08"))|| (isChem(entity));
+        return entity != null && (entity.getUuidAsString().equals("c38f83cf-2723-497a-9327-f5937fb2fc08"))
+                || (isChem(entity))
+                ||((isNightstrike(entity) && entity.getWorld().getGameRules().getBoolean(allowNightstrikeShenanigans))
+        );
     }
     /**
      * Checks if an entity is Chemthunder.
@@ -124,9 +128,24 @@ public class Saxophone implements ModInitializer {
         return entity != null && (entity.getUuidAsString().equals("d0f1f0f4-631e-4290-9f60-78ace9e5e0ef"));
     }
 
+    /**
+     * Bulk check for players.
+     * @param entity The entity to check.
+     */
+    public static boolean isContributor(Entity entity) {
+        return (
+                entity == null)
+                || (Saxophone.isChem(entity)
+                || (Saxophone.isNightstrike(entity))
+                || (Saxophone.isScarlet(entity))
+                || (Saxophone.isHstar(entity))
+                || (Saxophone.isHeartless(entity))
+        );
+    }
+
 
     /**
-     * Registers command sets.
+     * Registers command sets. Not hugely needed, but still useful for things not yet covered in the toggles.
      *
      */
     private static void registerEvents() {

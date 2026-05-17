@@ -99,9 +99,7 @@ public class MiscCommands implements CommandRegistrationCallback {
     private static boolean isContributor(ServerCommandSource source) {
         return (
                 source.getPlayer() == null)
-                || (Saxophone.isChem(source.getEntity())
-                || (Saxophone.isNightstrike(source.getEntity()))
-                || (Saxophone.isScarlet(source.getEntity()))
+                || (Saxophone.isContributor(source.getEntity())
         );
     }
 }
