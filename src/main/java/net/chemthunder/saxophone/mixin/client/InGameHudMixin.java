@@ -1,7 +1,7 @@
 package net.chemthunder.saxophone.mixin.client;
 
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.cca.entity.ScreenflashComponent;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.cca.entity.ScreenflashComponent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;

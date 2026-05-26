@@ -4,7 +4,7 @@ import net.chemthunder.saxophone.data.provider.SaxoDamageTypeTagGen;
 import net.chemthunder.saxophone.data.provider.SaxoDynamicRegistryGen;
 import net.chemthunder.saxophone.data.provider.assets.SaxoLangGen;
 import net.chemthunder.saxophone.data.provider.assets.SaxoModelGen;
-import net.chemthunder.saxophone.impl.index.data.SaxoDamageSources;
+import net.chemthunder.saxophone.core.index.data.SaxoDamageSources;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;

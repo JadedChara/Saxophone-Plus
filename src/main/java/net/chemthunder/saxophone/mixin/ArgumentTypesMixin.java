@@ -1,8 +1,8 @@
 package net.chemthunder.saxophone.mixin;
 
 import com.mojang.brigadier.arguments.ArgumentType;
-import net.chemthunder.saxophone.impl.util.command.ExternalModArgumentType;
-import net.chemthunder.saxophone.impl.util.command.ItemArgumentType;
+import net.chemthunder.saxophone.core.util.command.ExternalModArgumentType;
+import net.chemthunder.saxophone.core.util.command.ItemArgumentType;
 import net.minecraft.command.argument.ArgumentTypes;
 import net.minecraft.command.argument.serialize.ArgumentSerializer;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;

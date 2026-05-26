@@ -1,6 +1,6 @@
 package net.chemthunder.saxophone.mixin;
 
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

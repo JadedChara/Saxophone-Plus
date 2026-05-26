@@ -1,8 +1,8 @@
 package net.chemthunder.saxophone.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.chemthunder.saxophone.impl.cca.world.AvariceEventComponent;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.cca.world.AvariceEventComponent;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;

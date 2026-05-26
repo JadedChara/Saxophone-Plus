@@ -1,10 +1,9 @@
 package net.chemthunder.saxophone.mixin.client;
 
-import com.llamalad7.mixinextras.sugar.Local;
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.SaxophoneClient;
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.SaxophoneClient;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
@@ -20,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 /**
  * @author Chemthunder

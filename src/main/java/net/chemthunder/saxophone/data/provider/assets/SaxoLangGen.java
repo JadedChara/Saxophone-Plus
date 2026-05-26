@@ -1,10 +1,10 @@
 package net.chemthunder.saxophone.data.provider.assets;
 
-import net.chemthunder.saxophone.impl.index.SaxoItems;
-import net.chemthunder.saxophone.impl.index.SaxoStatusEffects;
-import net.chemthunder.saxophone.impl.index.data.SaxoDamageSources;
-import net.chemthunder.saxophone.impl.index.tag.SaxoDamageTypeTags;
-import net.chemthunder.saxophone.impl.util.DatagenUtils;
+import net.chemthunder.saxophone.core.index.SaxoItems;
+import net.chemthunder.saxophone.core.index.SaxoStatusEffects;
+import net.chemthunder.saxophone.core.index.data.SaxoDamageSources;
+import net.chemthunder.saxophone.core.index.tag.SaxoDamageTypeTags;
+import net.chemthunder.saxophone.core.util.DatagenUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;

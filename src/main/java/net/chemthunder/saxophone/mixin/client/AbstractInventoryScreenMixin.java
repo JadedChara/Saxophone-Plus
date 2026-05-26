@@ -2,8 +2,8 @@ package net.chemthunder.saxophone.mixin.client;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.index.SaxoStatusEffects;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.index.SaxoStatusEffects;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.entity.effect.StatusEffect;

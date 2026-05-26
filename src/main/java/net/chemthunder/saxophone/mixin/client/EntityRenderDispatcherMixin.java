@@ -1,6 +1,6 @@
 package net.chemthunder.saxophone.mixin.client;
 
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.util.math.MatrixStack;

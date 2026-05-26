@@ -18,18 +18,18 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.chemthunder.saxophone.impl.Saxophone",
+      "net.chemthunder.saxophone.core.Saxophone",
       "net.chemthunder.reverence.impl.Reverence",
       "net.chemthunder.oracle.impl.Oracle"
     ],
     "client": [
-      "net.chemthunder.saxophone.impl.SaxophoneClient"
+      "net.chemthunder.saxophone.core.SaxophoneClient"
     ],
     "fabric-datagen": [
       "net.chemthunder.saxophone.data.SaxophoneDataGen"
     ],
     "cardinal-components": [
-      "net.chemthunder.saxophone.impl.cca.SaxoComponents"
+      "net.chemthunder.saxophone.core.cca.SaxoComponents"
     ]
   },
   "mixins": [

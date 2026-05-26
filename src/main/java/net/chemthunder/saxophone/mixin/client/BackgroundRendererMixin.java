@@ -1,7 +1,7 @@
 package net.chemthunder.saxophone.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.BackgroundRenderer;
 import net.minecraft.client.render.Camera;

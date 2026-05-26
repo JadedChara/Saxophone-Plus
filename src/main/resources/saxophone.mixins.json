@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "net.chemthunder.saxophone.mixin",
-  "plugin": "net.chemthunder.saxophone.impl.compat.xaero.MinimapPlugin",
+  "plugin": "net.chemthunder.saxophone.core.compat.xaero.MinimapPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ArgumentTypesMixin",

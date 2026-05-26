@@ -38,8 +38,6 @@ public abstract class PlayerEntityMixin {
     private Text saxophone$changeUsername(Text original) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         MutableText temp = original.copy();
-
-        //Avarice
         if (ModUtils.isAvarice(player)) {
             temp =
                     Text.literal("Avarice").withColor(0xd70048).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);

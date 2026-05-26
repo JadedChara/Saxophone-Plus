@@ -1,7 +1,7 @@
 package net.chemthunder.saxophone.data.provider.assets;
 
-import net.chemthunder.saxophone.impl.index.SaxoBlocks;
-import net.chemthunder.saxophone.impl.index.SaxoItems;
+import net.chemthunder.saxophone.core.index.SaxoBlocks;
+import net.chemthunder.saxophone.core.index.SaxoItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;

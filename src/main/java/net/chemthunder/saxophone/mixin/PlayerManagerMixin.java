@@ -1,7 +1,7 @@
 package net.chemthunder.saxophone.mixin;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.network.ServerPlayerEntity;

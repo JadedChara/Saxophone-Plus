@@ -2,8 +2,8 @@ package net.chemthunder.saxophone.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import net.chemthunder.saxophone.impl.cca.world.AvariceEventComponent;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.cca.world.AvariceEventComponent;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.command.WorldBorderCommand;
 import net.minecraft.text.Text;

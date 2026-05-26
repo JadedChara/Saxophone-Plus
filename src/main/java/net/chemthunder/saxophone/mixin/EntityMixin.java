@@ -1,7 +1,7 @@
 package net.chemthunder.saxophone.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

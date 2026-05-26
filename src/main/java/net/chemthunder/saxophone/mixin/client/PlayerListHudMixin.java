@@ -1,6 +1,6 @@
 package net.chemthunder.saxophone.mixin.client;
 
-import net.chemthunder.saxophone.impl.cca.deity.EosComponent;
+import net.chemthunder.saxophone.core.cca.deity.EosComponent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.PlayerListHud;
 import net.minecraft.client.network.PlayerListEntry;

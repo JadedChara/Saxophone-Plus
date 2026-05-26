@@ -1,6 +1,6 @@
 package net.chemthunder.saxophone.mixin.compat.xaerominimap;
 
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
