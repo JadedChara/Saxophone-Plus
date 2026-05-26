@@ -1,12 +1,12 @@
 package net.chemthunder.saxophone.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
-import net.chemthunder.saxophone.impl.index.data.SaxoDamageSources;
-import net.chemthunder.saxophone.impl.index.tag.SaxoDamageTypeTags;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.entity.ArchitectComponent;
+import net.chemthunder.saxophone.core.index.data.SaxoDamageSources;
+import net.chemthunder.saxophone.core.index.tag.SaxoDamageTypeTags;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;

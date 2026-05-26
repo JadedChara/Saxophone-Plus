@@ -2,10 +2,10 @@ package net.chemthunder.saxophone.core.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
-import net.chemthunder.saxophone.impl.util.ModUtils;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.entity.ArchitectComponent;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.entity.player.PlayerEntity;

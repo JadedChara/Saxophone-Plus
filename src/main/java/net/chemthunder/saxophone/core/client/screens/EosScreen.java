@@ -1,9 +1,9 @@
-package net.chemthunder.saxophone.impl.client.screens;
+package net.chemthunder.saxophone.core.client.screens;
 
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.chemthunder.saxophone.impl.cca.deity.EosComponent;
-import net.chemthunder.saxophone.impl.client.screens.widgets.IndicatorWidget;
-import net.chemthunder.saxophone.impl.client.screens.widgets.SelectorWidget;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.deity.EosComponent;
+import net.chemthunder.saxophone.core.client.screens.widgets.IndicatorWidget;
+import net.chemthunder.saxophone.core.client.screens.widgets.SelectorWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;

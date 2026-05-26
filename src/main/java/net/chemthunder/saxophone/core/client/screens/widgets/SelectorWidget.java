@@ -1,7 +1,7 @@
-package net.chemthunder.saxophone.impl.client.screens.widgets;
+package net.chemthunder.saxophone.core.client.screens.widgets;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.chemthunder.saxophone.impl.Saxophone;
+import net.chemthunder.saxophone.core.Saxophone;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

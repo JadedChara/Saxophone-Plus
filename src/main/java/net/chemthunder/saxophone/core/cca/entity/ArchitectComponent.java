@@ -1,7 +1,7 @@
-package net.chemthunder.saxophone.impl.cca.entity;
+package net.chemthunder.saxophone.core.cca.entity;
 
 import net.acoyt.acornlib.api.util.MiscUtils;
-import net.chemthunder.saxophone.impl.Saxophone;
+import net.chemthunder.saxophone.core.Saxophone;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.RegistryByteBuf;

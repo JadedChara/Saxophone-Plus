@@ -1,10 +1,8 @@
 package net.chemthunder.saxophone.mixin;
 
 import com.mojang.authlib.GameProfile;
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
-import net.chemthunder.saxophone.impl.util.ModUtils;
 import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.cca.entity.ArchitectComponent;
 import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;

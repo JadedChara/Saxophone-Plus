@@ -1,7 +1,7 @@
-package net.chemthunder.saxophone.impl.networking.c2s;
+package net.chemthunder.saxophone.core.networking.c2s;
 
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.util.keybinds.SaxophoneKeybindManager;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.util.keybinds.SaxophoneKeybindManager;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;

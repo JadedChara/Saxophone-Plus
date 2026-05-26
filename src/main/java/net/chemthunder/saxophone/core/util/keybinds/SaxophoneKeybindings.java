@@ -1,10 +1,10 @@
 package net.chemthunder.saxophone.core.util.keybinds;
 
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.client.screens.ArchitectScreen;
-import net.chemthunder.saxophone.impl.client.screens.AvariceScreen;
-import net.chemthunder.saxophone.impl.client.screens.EosScreen;
-import net.chemthunder.saxophone.impl.networking.c2s.ExplodeIvoryPayload;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.client.screens.ArchitectScreen;
+import net.chemthunder.saxophone.core.client.screens.AvariceScreen;
+import net.chemthunder.saxophone.core.client.screens.EosScreen;
+import net.chemthunder.saxophone.core.networking.c2s.ExplodeIvoryPayload;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;

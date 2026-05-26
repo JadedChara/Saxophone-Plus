@@ -1,19 +1,10 @@
-package net.chemthunder.saxophone.impl.client.screens.widgets;
+package net.chemthunder.saxophone.core.client.screens.widgets;
 
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
+import net.chemthunder.saxophone.core.Saxophone;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
-import net.minecraft.client.gui.widget.AbstractTextWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.client.gui.widget.IconWidget;
-import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.component.Component;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 

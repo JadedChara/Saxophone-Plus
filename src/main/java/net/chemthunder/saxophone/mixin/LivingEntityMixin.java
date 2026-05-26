@@ -1,15 +1,14 @@
 package net.chemthunder.saxophone.mixin;
 
-import net.chemthunder.saxophone.impl.Saxophone;
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
-import net.chemthunder.saxophone.impl.cca.entity.InsistenceComponent;
-import net.chemthunder.saxophone.impl.cca.entity.RevenantDeathAnimationComponent;
-import net.chemthunder.saxophone.impl.item.AuthoritysObituaryItem;
-import net.chemthunder.saxophone.impl.item.MartyrdomItem;
-import net.chemthunder.saxophone.impl.item.RevenantEffigyItem;
-import net.chemthunder.saxophone.impl.util.ModUtils;
-import net.minecraft.client.particle.Particle;
+import net.chemthunder.saxophone.core.Saxophone;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.entity.ArchitectComponent;
+import net.chemthunder.saxophone.core.cca.entity.InsistenceComponent;
+import net.chemthunder.saxophone.core.cca.entity.RevenantDeathAnimationComponent;
+import net.chemthunder.saxophone.core.item.AuthoritysObituaryItem;
+import net.chemthunder.saxophone.core.item.MartyrdomItem;
+import net.chemthunder.saxophone.core.item.RevenantEffigyItem;
+import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.entity.Attackable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

@@ -1,12 +1,12 @@
 package net.chemthunder.saxophone.core.cca;
 
-import net.chemthunder.saxophone.impl.cca.deity.AvariceComponent;
-import net.chemthunder.saxophone.impl.cca.deity.EosComponent;
-import net.chemthunder.saxophone.impl.cca.entity.ArchitectComponent;
-import net.chemthunder.saxophone.impl.cca.entity.InsistenceComponent;
-import net.chemthunder.saxophone.impl.cca.entity.RevenantDeathAnimationComponent;
-import net.chemthunder.saxophone.impl.cca.entity.ScreenflashComponent;
-import net.chemthunder.saxophone.impl.cca.world.AvariceEventComponent;
+import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.deity.EosComponent;
+import net.chemthunder.saxophone.core.cca.entity.ArchitectComponent;
+import net.chemthunder.saxophone.core.cca.entity.InsistenceComponent;
+import net.chemthunder.saxophone.core.cca.entity.RevenantDeathAnimationComponent;
+import net.chemthunder.saxophone.core.cca.entity.ScreenflashComponent;
+import net.chemthunder.saxophone.core.cca.world.AvariceEventComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.ladysnake.cca.api.v3.entity.EntityComponentFactoryRegistry;
