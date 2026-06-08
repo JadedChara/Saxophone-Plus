@@ -17,6 +17,9 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
 
     private boolean eos = false;
     private boolean flight = false;
+    private boolean invincible = false;
+    private boolean invisible = false;
+    private boolean wavering = false;
 
     public EosComponent(PlayerEntity player) {
         this.player = player;
@@ -37,11 +40,17 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
     public void readFromNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
         this.eos = nbtCompound.getBoolean("Eos");
         this.flight = nbtCompound.getBoolean("Flight");
+        this.invincible = nbtCompound.getBoolean("Invincible");
+        this.invisible = nbtCompound.getBoolean("Invisible");
+        this.wavering = nbtCompound.getBoolean("Wavering");
     }
 
     public void writeToNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
         nbtCompound.putBoolean("Eos", eos);
         nbtCompound.putBoolean("Flight", flight);
+        nbtCompound.putBoolean("Invincible",invincible);
+        nbtCompound.putBoolean("Invisible",invisible);
+        nbtCompound.putBoolean("Wavering",wavering);
     }
 
     public boolean isEos() {
@@ -49,7 +58,19 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
     }
 
     public boolean canFly() {
-        return this.flight;
+        return this.flight && this.eos;
+    }
+
+    public boolean isInvincible(){
+        return this.invincible && this.eos;
+    }
+
+    public boolean isInvisible() {
+        return this.invisible && this.eos;
+    }
+
+    public boolean hasWavering() {
+        return this.wavering && this.eos;
     }
 
     public void setEos(boolean bl) {
@@ -59,6 +80,21 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
 
     public void setFlight(boolean bl) {
         this.flight = bl;
+        this.sync();
+    }
+
+    public void setInvincible(boolean bl) {
+        this.invincible = bl;
+        this.sync();
+    }
+
+    public void setInvisible(boolean bl) {
+        this.invisible = bl;
+        this.sync();
+    }
+
+    public void setWavering(boolean bl){
+        this.wavering = bl;
         this.sync();
     }
 
@@ -78,6 +114,9 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
         int[] set = registryByteBuf.readIntArray();
         this.eos = set[0] == 1;
         this.flight = set[1] == 1;
+        this.invincible = set[2] == 1;
+        this.invisible = set[3] == 1;
+        this.wavering = set[4] == 1;
     }
 
     public void c2sEos(boolean bl){
@@ -88,14 +127,29 @@ public class EosComponent implements AutoSyncedComponent, CommonTickingComponent
         this.flight = bl;
         this.serializeAndSend();
     }
+    public void c2sInvincible(boolean bl){
+        this.invincible = bl;
+        this.serializeAndSend();
+    }
+    public void c2sInvisible(boolean bl){
+        this.invisible = bl;
+        this.serializeAndSend();
+    }
+    public void c2sWavering(boolean bl){
+        this.wavering = bl;
+        this.serializeAndSend();
+    }
 
     public void serializeAndSend(){
 
         int e = this.eos ? 1 : 0;
         int f = this.flight ? 1 : 0;
+        int g = this.invincible ? 1 : 0;
+        int h = this.invisible ? 1 : 0;
+        int i = this.wavering ? 0 : 1;
 
 
-        int[] set = {e,f};
+        int[] set = {e,f,g,h,i};
 
         sendC2SMessage(buf->{
             buf.writeIntArray(set);

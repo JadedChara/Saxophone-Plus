@@ -19,10 +19,16 @@ public class EosScreen extends Screen {
 
     public SelectorWidget toggleEos;
     public SelectorWidget toggleFlight;
+    public SelectorWidget toggleInvincible;
+    public SelectorWidget toggleInvisible;
+    public SelectorWidget toggleWavering;
     public SelectorWidget shieldAvarice;
 
     public IndicatorWidget indicatorEos;
     public IndicatorWidget indicatorFlight;
+    public IndicatorWidget indicatorInvincible;
+    public IndicatorWidget indicatorInvisible;
+    public IndicatorWidget indicatorWavering;
     public IndicatorWidget indicatorShieldAvarice;
 
     public boolean isAvariceShielded;
@@ -61,6 +67,37 @@ public class EosScreen extends Screen {
                 .dimensions(width / 2 - 70, 70, 200, 20)
                 .tooltip(Tooltip.of(Text.translatable("button.saxophone.toggle.flight.tooltip")))
                 .build();
+        toggleInvincible = SelectorWidget.factory(Text.translatable("button.saxophone.toggle.invincibility"),
+                        button -> {
+                            ec.c2sInvincible(
+                                    !ec.isInvincible()
+                            );
+                            indicatorFlight.updateIcon(ec.isInvincible());
+                        })
+                .dimensions(width / 2 - 70, 100, 200, 20)
+                .tooltip(Tooltip.of(Text.translatable("button.saxophone.toggle.invincibility.tooltip")))
+                .build();
+        toggleInvisible = SelectorWidget.factory(Text.translatable("button.saxophone.toggle.invisibility.tooltip"),
+                        button -> {
+                            ec.c2sInvisible(
+                                    !ec.isInvisible()
+                            );
+                            indicatorInvisible.updateIcon(ec.isInvisible());
+                        })
+                .dimensions(width / 2 - 70, 130, 200, 20)
+                .tooltip(Tooltip.of(Text.translatable("button.saxophone.toggle.invisibility.tooltip")))
+                .build();
+        toggleWavering = SelectorWidget.factory(Text.translatable("button.saxophone.toggle.wavering"),
+                        button -> {
+                            ec.c2sWavering(
+                                    !ec.hasWavering()
+                            );
+                            indicatorWavering.updateIcon(ec.hasWavering());
+                        })
+                .dimensions(width / 2 - 70, 160, 200, 20)
+                .tooltip(Tooltip.of(Text.translatable("button.saxophone.toggle.wavering.tooltip")))
+                .build();
+
         shieldAvarice = SelectorWidget.factory(Text.translatable("button.saxophone.toggle.shield_avarice"),
                         button -> {
                             if(isServer){
@@ -82,7 +119,7 @@ public class EosScreen extends Screen {
 
                             indicatorShieldAvarice.updateIcon(this.isAvariceShielded);
                         })
-                .dimensions(width / 2 - 70, 100, 200, 20)
+                .dimensions(width / 2 - 70, 190, 200, 20)
                 .tooltip(Tooltip.of(Text.translatable("button.saxophone.toggle.shield_avarice.tooltip")))
                 .build();
 
@@ -97,9 +134,24 @@ public class EosScreen extends Screen {
                 72,
                 ec.canFly()
         );
-        indicatorShieldAvarice = new IndicatorWidget(
+        indicatorInvincible = new IndicatorWidget(
                 width/2-96,
                 102,
+                ec.isInvincible()
+        );
+        indicatorInvisible = new IndicatorWidget(
+                width/2-96,
+                132,
+                ec.isInvisible()
+        );
+        indicatorWavering = new IndicatorWidget(
+                width/2-96,
+                162,
+                ec.hasWavering()
+        );
+        indicatorShieldAvarice = new IndicatorWidget(
+                width/2-96,
+                192,
                 this.isAvariceShielded
         );
 
@@ -107,6 +159,9 @@ public class EosScreen extends Screen {
         //Init controls
         addDrawableChild(toggleEos);
         addDrawableChild(toggleFlight);
+        addDrawableChild(toggleInvincible);
+        addDrawableChild(toggleInvisible);
+        addDrawableChild(toggleWavering);
         addDrawableChild(shieldAvarice);
 
         shieldAvarice.active = this.isServer;
@@ -114,6 +169,9 @@ public class EosScreen extends Screen {
         //Init visual indicators
         addDrawable(indicatorEos);
         addDrawable(indicatorFlight);
+        addDrawableChild(indicatorInvincible);
+        addDrawableChild(indicatorInvisible);
+        addDrawableChild(indicatorWavering);
         addDrawable(indicatorShieldAvarice);
     }
     @Override
@@ -121,7 +179,7 @@ public class EosScreen extends Screen {
         super.render(context, mouseX, mouseY, delta);
         context.drawCenteredTextWithShadow(
                 this.textRenderer,
-                Text.translatable("screen.saxophone.architect.controls"),
+                Text.translatable("screen.saxophone.eos.controls"),
                 width / 2,
                 20,
                 0xffffff);

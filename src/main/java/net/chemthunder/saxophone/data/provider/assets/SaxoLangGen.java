@@ -71,13 +71,13 @@ public class SaxoLangGen extends FabricLanguageProvider {
         translationBuilder.add("button.saxophone.toggle.invincibility","Toggle Invincibility");
         translationBuilder.add(
                 "button.saxophone.toggle.invincibility.tooltip",
-                "Prevent damage to Avarice, but likewise prevent Avarice from inflicting damage..."
+                "Prevent damage to the player, but likewise prevent the player from inflicting damage..."
         );
 
         translationBuilder.add("button.saxophone.toggle.invisibility","Toggle Invisibility");
         translationBuilder.add(
                 "button.saxophone.toggle.invisibility.tooltip",
-                "Enable/disable rendering of Avarice, as well as particles, shadow, and footsteps..."
+                "Enable/disable rendering of the player, as well as particles, shadow, and footsteps..."
         );
 
         translationBuilder.add("button.saxophone.toggle.wavering","Toggle Wavering");

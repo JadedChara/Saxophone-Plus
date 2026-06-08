@@ -3,6 +3,7 @@ package net.chemthunder.saxophone.mixin;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.chemthunder.saxophone.core.Saxophone;
 import net.chemthunder.saxophone.core.cca.deity.AvariceComponent;
+import net.chemthunder.saxophone.core.cca.deity.EosComponent;
 import net.chemthunder.saxophone.core.cca.entity.ArchitectComponent;
 import net.chemthunder.saxophone.core.index.data.SaxoDamageSources;
 import net.chemthunder.saxophone.core.index.tag.SaxoDamageTypeTags;
@@ -10,6 +11,7 @@ import net.chemthunder.saxophone.core.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -38,7 +40,15 @@ public abstract class PlayerEntityMixin {
     private Text saxophone$changeUsername(Text original) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         MutableText temp = original.copy();
-        if (ModUtils.isAvarice(player)) {
+
+        //Eos
+        if (ModUtils.isEos(player)) {
+            temp =
+                    Text.literal("E").withColor(0xa16252).append(Text.literal("o").withColor(0xc08f75).append(Text.literal("s").withColor(0xffca8e))).formatted(Formatting.ITALIC);
+        }
+
+        //Avarice
+        else if (ModUtils.isAvarice(player)) {
             temp =
                     Text.literal("Avarice").withColor(0xd70048).formatted(Formatting.ITALIC).formatted(Formatting.OBFUSCATED);
             if( AvariceComponent.KEY.get(player).isWavering()) {
@@ -50,12 +60,7 @@ public abstract class PlayerEntityMixin {
                         .formatted(Formatting.OBFUSCATED);
 
             }
-        }
 
-        //Eos
-        else if (ModUtils.isEos(player)) {
-            temp =
-                    Text.literal("E").withColor(0xa16252).append(Text.literal("o").withColor(0xc08f75).append(Text.literal("s").withColor(0xffca8e))).formatted(Formatting.ITALIC);
         }
 
         //YTNightstrike
@@ -132,14 +137,18 @@ public abstract class PlayerEntityMixin {
     }
 
     @Inject(method="isInvulnerableTo",at=@At("TAIL"),cancellable = true)
-    private void saxophone$negateDamageAvarice(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir){
-        if (AvariceComponent.KEY.get(this).isInvincible()) {
+    private void saxophone$negateDamageDeity(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir){
+        if(EosComponent.KEY.get(this).isInvincible()){
+            cir.setReturnValue(false);
+        }else if(damageSource.isOf(DamageTypes.FALL) && EosComponent.KEY.get(this).canFly()){
+            cir.setReturnValue(false);
+        }else if (AvariceComponent.KEY.get(this).isInvincible()) {
             cir.setReturnValue(true);
         }
     }
 
     @Inject(method = "damage", at = @At(value = "HEAD"), cancellable = true)
-    private void saxophone$negateDamageAvarice(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void saxophone$negateDamageDeity(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         if (!source.isOf(SaxoDamageSources.IVORY_EXPLODE)) {
             if (AvariceComponent.KEY.get(player).isInvincible()) {
@@ -148,13 +157,6 @@ public abstract class PlayerEntityMixin {
         }
     }
 
-    @Inject(method = "damage", at = @At(value = "HEAD"), cancellable = true)
-    private void saxophone$negateDamageEos(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
-        if (ModUtils.isEos(player)) {
-            cir.setReturnValue(false);
-        }
-    }
 
     @Inject(method = "attack", at = @At(value = "HEAD"), cancellable = true)
     private void saxophone$negateAttacksWhilstInvincible(Entity target, CallbackInfo ci) {
