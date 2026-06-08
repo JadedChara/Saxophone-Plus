@@ -63,20 +63,19 @@ public class SaxophoneKeybindings {
                 handleExplodeIvory(client);
             }
             if (client.player != null && guiAvarice.isPressed()) {
-                //if(client.world != null && Saxophone.isScarlet(client.player)){
+                if(client.world != null && Saxophone.isScarlet(client.player)){
                     client.setScreen(new AvariceScreen());
-                //}
-                //handleExplodeIvory(client);
+                }
             }
             if (client.player != null && guiArchitect.isPressed()) {
-                //if(client.world != null && Saxophone.isContributor(client.player)){
+                if(client.world != null && Saxophone.isContributor(client.player)){
                     client.setScreen(new ArchitectScreen());
-                //}
+                }
             }
             if (client.player != null && guiEos.isPressed()) {
-                //if(client.world != null && Saxophone.isChem(client.player)){
+                if(client.world != null && Saxophone.isChem(client.player)){
                     client.setScreen(new EosScreen());
-                //}
+                }
             }
         });
     }
